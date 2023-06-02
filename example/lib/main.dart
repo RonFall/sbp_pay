@@ -20,15 +20,12 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: TextButton(
             onPressed: () async {
-              final mounted = context.mounted;
+              final messenger = ScaffoldMessenger.of(context);
               if (await SbpPay.init()) {
                 await SbpPay.showPaymentModal(_paymentLink);
               } else {
-                if (!mounted) return;
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('not supported'),
-                  ),
+                messenger.showSnackBar(
+                  const SnackBar(content: Text('Not supported')),
                 );
               }
             },
