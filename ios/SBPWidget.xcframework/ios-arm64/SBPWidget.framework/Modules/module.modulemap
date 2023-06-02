@@ -1,0 +1,11 @@
+framework module SBPWidget {
+  umbrella header "SBPWidget.h"
+
+  export *
+  module * { export * }
+}
+
+module SBPWidget.Swift {
+    header "SBPWidget-Swift.h"
+    requires objc
+}

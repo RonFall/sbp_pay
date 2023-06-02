@@ -1,0 +1,61 @@
+group 'sbp.plugin.sbp_pay'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.7.10'
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.2.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 33
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+    }
+}
+
+// Ищем в папке android папку repo
+String path = project.mkdir("repo").absolutePath
+rootProject.allprojects {
+    repositories {
+        maven {
+            url "$path" // Добавляем бандл с SDK как maven источник
+        }
+    }
+}
+
+dependencies {
+    // Добавляем зависимость как тразитивную
+    implementation('sbp.payments.sdk:sbp_sdk:1.2@aar') { transitive = true }
+}

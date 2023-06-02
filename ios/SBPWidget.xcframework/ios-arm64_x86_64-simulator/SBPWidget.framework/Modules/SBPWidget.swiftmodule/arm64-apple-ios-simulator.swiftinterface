@@ -1,0 +1,41 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SBPWidget
+import Combine
+import Foundation
+@_exported import SBPWidget
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+@_hasMissingDesignatedInitializers @available(iOS 13.0, *)
+final public class SBPWidgetSDK {
+  public static let shared: SBPWidget.SBPWidgetSDK
+  @objc deinit
+}
+@available(iOS 13.0, *)
+extension SBPWidget.SBPWidgetSDK {
+  final public func bankListViewController(paymentURL: Swift.String) throws -> UIKit.UIViewController
+  final public func presentBankListViewController(paymentURL: Swift.String, parentViewController: UIKit.UIViewController) throws
+}
+public enum SBPWidgetError : Swift.Error {
+  case invalidURLString
+  case loadingFaild
+  case presentationFailed
+  public static func == (a: SBPWidget.SBPWidgetError, b: SBPWidget.SBPWidgetError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers final public class SBPWidgetBank {
+  final public let name: Swift.String
+  final public let logoURL: Foundation.URL?
+  final public let dboLink: Foundation.URL
+  @objc deinit
+}
+extension SBPWidget.SBPWidgetBank {
+  public static func fetchAll(paymentURL: Swift.String, receivOn queue: Dispatch.DispatchQueue, completion: @escaping (Swift.Result<[SBPWidget.SBPWidgetBank], SBPWidget.SBPWidgetError>) -> Swift.Void) throws
+}
+extension SBPWidget.SBPWidgetError : Swift.Equatable {}
+extension SBPWidget.SBPWidgetError : Swift.Hashable {}
