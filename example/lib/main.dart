@@ -17,20 +17,24 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: Center(
-          child: TextButton(
-            onPressed: () async {
-              final messenger = ScaffoldMessenger.of(context);
-              if (await SbpPay.init()) {
-                await SbpPay.showPaymentModal(_paymentLink);
-              } else {
-                messenger.showSnackBar(
-                  const SnackBar(content: Text('Not supported')),
-                );
-              }
-            },
-            child: const Text('Running on'),
-          ),
+        body: Builder(
+          builder: (context) {
+            return Center(
+              child: TextButton(
+                onPressed: () async {
+                  final messenger = ScaffoldMessenger.of(context);
+                  if (await SbpPay.init()) {
+                    await SbpPay.showPaymentModal(_paymentLink);
+                  } else {
+                    messenger.showSnackBar(
+                      const SnackBar(content: Text('Not supported')),
+                    );
+                  }
+                },
+                child: const Text('Running on'),
+              ),
+            );
+          }
         ),
       ),
     );
