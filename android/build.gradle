@@ -57,5 +57,5 @@ rootProject.allprojects {
 
 dependencies {
     // Добавляем зависимость как тразитивную
-    implementation('sbp.payments.sdk:sbp_sdk:1.2@aar') { transitive = true }
+    implementation('sbp.payments.sdk:sbp_sdk:1.4@aar') { transitive = true }
 }

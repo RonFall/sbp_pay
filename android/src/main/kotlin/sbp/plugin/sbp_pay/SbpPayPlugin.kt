@@ -13,7 +13,6 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry
-import org.koin.core.component.getScopeId
 import sbp.payments.sdk.SBP
 
 /** SbpPayPlugin */
@@ -53,7 +52,7 @@ class SbpPayPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
                     result.success(true)
                 } catch (e: Exception) {
                     // Перехват ошибок плагина
-                    result.error(e.getScopeId(), e.localizedMessage, e.message)
+                    result.error("-", e.localizedMessage, e.message)
                 }
             }
 

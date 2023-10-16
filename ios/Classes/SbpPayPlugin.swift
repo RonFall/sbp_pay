@@ -14,13 +14,13 @@ public class SbpPayPlugin: NSObject, FlutterPlugin {
         // Запрашиваем при инициализации доступность SDK на iOS
         case "init":
             // Заглушка, инициализация для iOS не требуется.
-            if #available(iOS 13.0, *) {
+            if #available(iOS 12.0, *) {
               result(true)
             } else {
               result(false)
             }
         case "showPaymentModal":
-            if #available(iOS 13.0, *) {
+            if #available(iOS 12.0, *) {
                 if let topController = getTopViewController() {
                     do {
                         try SBPWidgetSDK.shared.presentBankListViewController(paymentURL: call.arguments as! String, parentViewController: topController)
@@ -40,7 +40,7 @@ public class SbpPayPlugin: NSObject, FlutterPlugin {
         }
     }
 
-    @available(iOS 13.0, *)
+    @available(iOS 12.0, *)
     private func getTopViewController() -> UIViewController? {
         if var topController = UIApplication.shared.keyWindow?.rootViewController {
             while let presentedViewController = topController.presentedViewController {

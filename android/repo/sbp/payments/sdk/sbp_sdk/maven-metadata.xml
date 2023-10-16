@@ -3,11 +3,11 @@
   <groupId>sbp.payments.sdk</groupId>
   <artifactId>sbp_sdk</artifactId>
   <versioning>
-    <latest>1.2</latest>
-    <release>1.2</release>
+    <latest>1.4</latest>
+    <release>1.4</release>
     <versions>
-      <version>1.2</version>
+      <version>1.4</version>
     </versions>
-    <lastUpdated>20230115181623</lastUpdated>
+    <lastUpdated>20230626140939</lastUpdated>
   </versioning>
 </metadata>
