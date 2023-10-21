@@ -1,15 +1,7 @@
 # sbp_pay
 
-A new Flutter plugin project.
+Плагин для удобного использования виджета [СБП](https://sbp.nspk.ru/business_online/).
 
-## Getting Started
+[Статья](https://habr.com/ru/companies/friflex/articles/768610/) о том как использовать плагин.
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
-
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 
