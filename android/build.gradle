@@ -43,6 +43,7 @@ android {
     defaultConfig {
         minSdkVersion 21
     }
+    namespace 'sbp.plugin.sbp_pay'
 }
 
 // Ищем в папке android папку repo
